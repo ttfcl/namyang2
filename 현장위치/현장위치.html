@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>현장위치</title>
+  <link rel="stylesheet" href="style.css">
+  <title>나주남양휴튼 정식홈페이지 대표문의 1668 0776</title>
+  <meta name="title" content="나주남양휴튼 정식홈페이지 대표문의 1668 0776">
+  <meta name="description" content="남양휴튼프라우스ㅣ24시간 친절상담ㅣ홍보관위치안내ㅣ방문예약접수ㅣ☎대표문의 1668 - 0776ㅣ나주남양휴튼마운틴올리브스쿨">
+  <meta name="keywords" content="나주남양휴튼, 빛가람남양휴튼, 금천남양휴튼, 금천면남양휴튼, 빛가람코오롱, 빛가람코오롱하늘채, 남평남양휴튼, 빛가람신규아파트, 나주자이아파트, 나주일반분양, 나주신규아파트, 남양휴튼프라우스, 나주남양휴튼프라우스,  세대분리형아파트, 광주세대분리형아파트, 나주세대분리형아파트, 나주캥거루아파트, 광주캥거루아파트,광주세대분리형아파트, 나주세대분리형아파트, 나주남양휴튼마운틴올리브스쿨, 남양휴튼마운틴올리브스쿨, 나주마운틴올리브스쿨">
+  <meta property="og:type" content="website" data-dynamic="true">
+  <meta property="og:title" content="나주남양휴튼 정식홈페이지 대표문의 1668 0776" data-dynamic="true">
+  <meta property="og:url" content="https://e-model-house.kro.kr/" data-dynamic="true">
+  <meta property="og:description" content="남양휴튼프라우스ㅣ24시간 친절상담ㅣ홍보관위치안내ㅣ방문예약접수ㅣ☎대표문의 1668 - 0776ㅣ나주남양휴튼마운틴올리브스쿨" />
+  <meta property="og:image" content="indexImg/AnyConv.com__main1.webp" data-dynamic="true">
+  <meta property="og:site_name" content="나주남양휴튼 정식홈페이지 대표문의 1668 0776">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+  <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=pyy397odvv"></script>
+</head>
+<body>
+  <nav>
+    <a href="../index.html" title="메인화면" class="navLogo" id="logo">
+      <img src="img/logo.png" alt="네비 로고">
+    </a>
+    <div class="navbar2">
+      <div class="navbar">
+        <a href="../사업소개/사업소개.html" title="사업소개">사업소개</a>
+        <a href="../현장위치/현장위치.html" title="현장위치">현장위치</a>
+        <a href="../단지안내/단지안내.html" title="단지안내">단지안내</a>
+        <a href="../개발호재/개발호재.html" title="커뮤니티시설">커뮤니티시설</a>
+        <a href="../개발호재/개발호재.html" title="보도자료">보도자료</a>
+        <a href="../관심고객등록/관심고객등록.html" title="관심고객등록">관심고객등록</a>
+        <a href="tel:1668-0776" title="대표문의 1668 0776">대표문의 1668 0776</a>
+      </div>
+    </div>
+  </nav>
+  <div class="section1">
+    <img src="img/AnyConv.com__현장위치1.webp" alt="메인1">
+    <img src="img/AnyConv.com__현장위치2.webp" alt="메인1">
+    <img src="img/AnyConv.com__현장위치3.webp" alt="메인1">
+    <img src="img/AnyConv.com__현장위치3_2.webp" alt="메인1">
+  </div>
+  <div class="map">
+    <div id="map"></div>
+  </div>
+  <footer>
+    @All copyright Madoyo had been reserved
+  </footer>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="nav.js"></script>
+<script>
+  var HOME_PATH = window.HOME_PATH || '.';
+
+
+map = new naver.maps.Map('map', {
+  center: new naver.maps.LatLng(35.221627, 126.848578),
+  zoom: 14
+});
+
+
+var hyeonjinHouse = new naver.maps.LatLng(35.221627, 126.848578);
+
+
+var markers = [];
+var infowindows = [];
+
+
+markers.push(new naver.maps.Marker({
+  map: map,
+  position: hyeonjinHouse
+}));
+
+infowindows.push(new naver.maps.InfoWindow({
+  content: [
+      '<div class="iw_inner">',
+      '   <h5 style="margin-top:10px; padding: 0px 20px;">첨단두산위브더제니스</h5>',
+      '</div>'
+  ].join('')
+}));
+
+
+for(let i=0; i<markers.length; i++){
+  naver.maps.Event.addListener(markers[i], "click", function(e) {
+      if (infowindows[i].getMap()) {
+          infowindows[i].close();
+      } else {
+          infowindows[i].open(map, markers[i]);
+      }
+  });
+}
+
+infowindows[0].open(map, markers[0]);
+</script>
+<script type="text/javascript">
+	// F12키 금지
+	$(document).ready(function(){
+		$(document).on('keydown',function(e){
+			if ( e.keyCode == 123 || e.keyCode == 93) {  /* F12키 */
+        e.preventDefault();
+				e.returnValue = false;
+			}
+		});
+	});
+  $(document).ready(function(){
+		$(document).on('keydown',function(e){
+			if (e.keyCode == 93) {  /* F12키 */
+        // alert("보안을 위해 개발자 모드를 금지시켰습니다.\n자세한 내용은 제작자에게 문의주세요.")
+        e.preventDefault();
+				e.returnValue = false;
+			}
+		});
+	});
+	// 마우스오른쪽 클릭방지
+	document.onmousedown=disableclick;
+	// status="보안을 위해 개발자 모드를 금지시켰습니다.\n자세한 내용은 제작자에게 문의주세요.";
+	function disableclick(event){
+		if (event.button==2) {
+			alert(status);
+			return false;
+		}
+	}	
+</script>
+</body>
+</html>
